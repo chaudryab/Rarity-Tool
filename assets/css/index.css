@@ -1,0 +1,175 @@
+:root{
+  --pink:rgba(219, 39, 119);
+  --gray:rgba(24, 31, 38);
+  --purple:rgba(50, 53, 72);
+}
+
+body{
+  color: rgba(219, 39, 119);
+  background-color: rgba(31, 41, 55);
+}
+
+/* SIDEBAR */
+
+.sidebar{
+  
+}
+
+.sidebar__title{
+  height: 50px;
+}
+
+.sidebar__text{
+  font-weight: 700;
+}
+
+.sidebar__input{
+  width: 100%;
+  height: 25px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 2px 7px;
+  font-size: 12px;
+  background-color: rgba(55, 65, 81);
+  color: rgba(209, 213, 219);
+}
+.sidebar__input:focus{
+  outline: 1px solid rgba(219, 39, 119);
+}
+.sidebar__input::placeholder{
+  color: rgba(219, 39, 119);
+}
+
+.sidebar__show__button{
+  display: none;
+}
+
+button{
+  color: white;
+  font-size: 12px;
+  background-color: rgba(219, 39, 119);
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 12px;
+  font-weight: 600;
+}
+button:hover{
+  color: white;
+  background-color: rgb(175, 9, 84);
+  transition: 0.2s all ease-in-out;
+}
+
+/* CARDS */
+.poster{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.main__body{
+  height: 100vh;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+  background-color: rgba(24, 31, 38);
+}
+
+::-webkit-scrollbar-thumb{
+  background-color:  rgba(75, 85, 99);
+}
+
+.card__body{
+  bottom: 0;
+  color: gray;
+  max-width: 200px;
+  height: 280px;
+  border-radius: 8px;
+  background-color: var(--purple);
+  transition: 0.2s bottom ease-in;
+}
+
+.card__body:hover{
+  position: relative;
+  bottom: 8px;
+}
+
+.card__title{
+  height: 40px;
+}
+
+.card__number{
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--pink);
+}
+
+.card__text{
+  font-size: 14px;
+}
+
+.card__text>a{
+  color: gray;
+}
+
+.card__image>img{
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.image__text{
+  opacity: 0.5;
+  text-align: center;
+  left: 20px;
+  top: 100px;
+  position: absolute;
+  width: 80%;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 700;
+  background-color: rgb(0, 0, 0);
+}
+.card__name{
+  height: 25px;
+  font-weight: 600;
+}
+.card__name>a{
+  color: rgb(228, 228, 228);
+}
+.card__price{
+  color: rgb(168, 168, 168);
+  font-size: 12px;
+  font-weight: 700;
+  height: 0px;
+}
+.sort__body>select{
+  height: 25px;
+  border: 1px solid var(--pink);
+  border-radius: 3px;
+  outline: none;
+  width: 150px;
+  color: var(--pink);
+  background-color: var(--gray);
+}
+
+@media only screen and (max-width: 576px) {
+  ::-webkit-scrollbar{
+      display: none;
+  }
+  .sidebar__show__button{
+      display: block;
+  }
+  .sidebar__show__button>button{
+      max-width: 150px;
+  }
+  .sidebar{
+      display: none;
+  }
+}
+
+.sidebar__display{
+  display: block;
+}

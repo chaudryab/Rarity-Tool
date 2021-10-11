@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- BODY -->
+        <div class="row flex-sm-row flex-column">
+            <!-- SIDEBAR SHOW BUTTON -->
+            <div class="col-auto my-3 sidebar__show__button">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <button onclick="myFunction()">
+                            Show Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="col-sm-3 mb-5 sidebar">
+
+                <!-- FILTER BY -->
+                <div class="row align-items-center sidebar__title justify-content-center">
+                    <div class="col-auto sidebar__text">Filter by</div>
+                </div>
+                <!-- BUTTONS -->
+                <div class="row">
+                    <div class="col-12">
+                      <a href="{% url 'index' %}"> <button class="px-2 py-2">All</button></a>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <a href="{% url 'first_rarity_tools' %}"><button class="px-2 py-2">First Sale Only</button></a>
+                    </div>
+                </div>
+
+                <br>
+
+                <!-- PRICE -->
+                <div class="row align-items-center sidebar__title justify-content-center">
+                    <div class="col-auto sidebar__text">Price</div>
+                </div>
+                <!-- INPUT FIELDS -->
+                <form method="post" action="price">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" placeholder="MIN ETH" name="min" class="sidebar__input"required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-2">
+                        <input type="text" placeholder="MAX ETH" name="max" class="sidebar__input"required>
+                    </div>
+                </div>
+                <!-- BUTTON -->
+                <div class="row">
+                    <div class="col">
+                        <button class="px-2 py-2 mt-4" type="submit">Apply</button>
+                    </div>
+                </div>
+                </form>
+                <br>
+
+                <!-- RARITY -->
+                <div class="row align-items-center sidebar__title justify-content-center">
+                    <div class="col-auto sidebar__text">Rarity</div>
+                </div>
+                <!-- INPUT FIELDS -->
+                <form method="post" action="rank">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" placeholder="MIN RANK" name="min" class="sidebar__input"required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-2">
+                        <input type="text" placeholder="MAX RANK" name="max" class="sidebar__input"required>
+                    </div>
+                </div>
+                <!-- BUTTON -->
+                <div class="row">
+                    <div class="col">
+                        <button class="px-2 py-2 mt-4" type="submit">Apply</button>
+                    </div>
+                </div>
+                </form>
+                <br>
+            </div>
+
+            <!-- MAIN BODY -->
+            <div class="col-sm-9 main__body mt-4 ">
+                <!-- POSTER -->
+                <div class="row">
+                    <div class="col-12">
+                        <img class="poster" src="{% static 'images/panda.png' %}" alt="image">
+                    </div>
+                </div>
+
+                <!-- SORT -->
+                <!-- <div class="row mt-4 justify-content-end">
+                    <div class="col-auto sort__body">
+                        <select name="rarity" id="rarity">
+                            <option selected disabled>Rarity</option>
+                            <option value="ascending">Ascending</option>
+                            <option value="descending">Descending</option>
+                        </select>
+                    </div>
+                </div> -->
+
+                <!-- CARDS CONTAINER -->
+                <div class="row justify-content-center" id="card">
+                    {% for d in data %}
+                    <!-- CARD BODY -->
+                    <div class="col-auto card__body mt-4 mx-1">
+                        <!-- CARD NUMBER & TEXT -->
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-auto card__number">#{{ d.counter }}</div>
+                        </div>
+                        <!-- CARD IMAGE -->
+                        <div class="row">
+                            <a href="{{ d.url }}">
+                            <div class="col card__image px-2 py-1">
+                                <img src="{{ d.image_url }}" alt="">
+                                <!-- IMAGE TEXT -->
+                                {% if d.first_sale == 'N' %}
+                                <p class="image__text">Secondary Market</p>
+                                {% endif %}
+                            </div></a>
+                        </div>
+                        <!-- CARD CHARACTER NAME & NUMBER -->
+                        <div class="row justify-content-start align-items-end">
+                            <div class="col-auto card__name">
+                                {{ d.name }}
+                            </div>
+                        </div>
+                        <!-- CARD CHARACTER PRICE -->
+                        <div class="row justify-content-start align-items-start card__price">
+                            <div class="col-auto">
+                                {{ d.price }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- JS LINK -->
+    <script src="{% static 'jss/index.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script>
+      var counter = 40
+      $(window).scroll(function () {
+        if ($(window).scrollTop() + $(this).height() == $(document).height()) {
+        $.post('{% url "first_url" %}', {'counter': counter}).then((result)=> {
+          counter += result.data.length
+          if(result.data.length > 0){
+              result.data.forEach((item, index)=> {
+                  if(item.fields.first_sale == 'Y'){
+                $("#card").append(`<div class="col-auto card__body mt-4 mx-1">
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-auto card__number">#${ item.fields.counter }</div>
+                        </div>
+                        <div class="row">
+                            <a href="${ item.fields.url }">
+                            <div class="col card__image px-2 py-1">
+                                <img src="${ item.fields.image_url }" alt="">
+                            </div></a>
+                        </div>
+                        <div class="row justify-content-start align-items-end">
+                            <div class="col-auto card__name">
+                                ${ item.fields.name }
+                            </div>
+                        </div>
+                        <div class="row justify-content-start align-items-start card__price">
+                            <div class="col-auto">
+                                ${ item.fields.price }
+                            </div>
+                        </div>
+                    </div>`)}
+                    else{
+                        $("#card").append(`<div class="col-auto card__body mt-4 mx-1">
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-auto card__number">#${ item.fields.counter }</div>
+                        </div>
+                        <div class="row">
+                            <a href="${ item.fields.url }">
+                            <div class="col card__image px-2 py-1">
+                                <img src="${ item.fields.image_url }" alt="">
+                                <p class="image__text">Secondary Market</p>
+                            </div></a>
+                        </div>
+                        <div class="row justify-content-start align-items-end">
+                            <div class="col-auto card__name">
+                                ${ item.fields.name }
+                            </div>
+                        </div>
+                        <div class="row justify-content-start align-items-start card__price">
+                            <div class="col-auto">
+                                ${ item.fields.price }
+                            </div>
+                        </div>
+                    </div>`)
+                    }
+            })
+          }
+        })
+          }
+      }); 
+
+  </script>
+</body>
+</html>
