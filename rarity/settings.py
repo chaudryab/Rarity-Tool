@@ -80,7 +80,6 @@ WSGI_APPLICATION = 'rarity.wsgi.application'
 DATABASES = {
     'default': {
         
-        #---------------------- Heroku ------------------------
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd9r8naafd6tu15',
         'USER': 'uckobssjvvlcrr',
