@@ -5,4 +5,4 @@ import requests
 import pandas as pd
 
 def index(request):
-    return redirect('/rarity_tool/rarity_tool')
+    return redirect('/rarity_tool/index')

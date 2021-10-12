@@ -233,7 +233,7 @@ button:hover{
         <div class="row align-items-center header justify-content-center mb-2">
             <div class="col-auto p-0">
                 <ul class="m-0 p-0">
-                    <li><a href="https://www.deadarmyclub.com/">HOME</a>&nbsp;&nbsp;
+                    <li><a href="{% url 'index' %}">HOME</a>&nbsp;&nbsp;
                     <a href="{% url 'rarity_tool' %}">Rarity Tool</a></li>
 
                 </ul>
@@ -282,10 +282,10 @@ button:hover{
                 <!-- INPUT FIELDS -->
                 <div class="row">
                     <div class="col-md-6">
-                        <input type="text" placeholder="MIN ETH" name="p_min" class="sidebar__input" required>
+                        <input type="text" placeholder="MIN ETH" name="p_min" class="sidebar__input" >
                     </div>
                     <div class="col-md-6 mt-md-0 mt-2">
-                        <input type="text" placeholder="MAX ETH" name="p_max" class="sidebar__input" required>
+                        <input type="text" placeholder="MAX ETH" name="p_max" class="sidebar__input" >
                     </div>
                 </div>
 
@@ -296,10 +296,10 @@ button:hover{
                 <!-- INPUT FIELDS -->
                 <div class="row">
                     <div class="col-md-6">
-                        <input type="text" placeholder="MIN RANK" name="r_min" class="sidebar__input" required>
+                        <input type="text" placeholder="MIN RANK" name="r_min" class="sidebar__input" >
                     </div>
                     <div class="col-md-6 mt-md-0 mt-2">
-                        <input type="text" placeholder="MAX RANK" name="r_max" class="sidebar__input" required>
+                        <input type="text" placeholder="MAX RANK" name="r_max" class="sidebar__input" >
                     </div>
                 </div>
                 <!-- BUTTON -->
@@ -329,8 +329,8 @@ button:hover{
                             <!-- Add the name of the page you want to go to in value="" -->
                             <!-- This will route to a php page here in this case "ascending.php" -->
                             <!-- If you want to cahnge the extension ".php" change it in the index.js file -->
-                            <option value="{% url 'rarity_tool' %}">Ascending</option>
-                            <option value="{% url 'des_rarity_tool' %}">Descending</option>
+                            <option value="low_secondary_rarity_tool">Price low to high</option>
+                            <option value="high_secondary_rarity_tool">Price high to low</option>
                         </select>
                     </div>
                 </div>
