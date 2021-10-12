@@ -1,0 +1,459 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- CSS Link -->
+    <!-- <link rel="stylesheet" href="{% static 'css/index.css' %}"> -->
+   <style>
+       :root{
+    --pink:rgba(219, 39, 119);
+    --gray:rgba(24, 31, 38);
+    --purple:rgba(50, 53, 72);
+}
+
+body{
+    color: rgba(219, 39, 119);
+    background-color: rgba(31, 41, 55);
+}
+
+/* HEADER */
+.header{
+    background-color: black;
+    height: 30px;
+}
+ul > li {
+    list-style-type: none;
+}
+li > a{
+    text-decoration: none;
+    color: var(--pink);
+}
+li > a:hover{
+    text-decoration: none;
+    color: rgb(168, 25, 90);
+}
+/* SIDEBAR */
+.sidebar{
+    
+}
+
+.sidebar__title{
+    height: 50px;
+}
+
+.sidebar__text{
+    font-weight: 700;
+}
+
+.sidebar__input{
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding: 2px 7px;
+    font-size: 12px;
+    background-color: rgba(55, 65, 81);
+    color: rgba(209, 213, 219);
+}
+.sidebar__input:focus{
+    outline: 1px solid rgba(219, 39, 119);
+}
+.sidebar__input::placeholder{
+    color: rgba(219, 39, 119);
+}
+
+.sidebar__show__button{
+    display: none;
+}
+
+button{
+    color: white;
+    font-size: 12px;
+    background-color: rgba(219, 39, 119);
+    width: 100%;
+    border: 1px solid var(--pink);
+    border-radius: 12px;
+    font-weight: 600;
+}
+button:hover{
+    color: white;
+    background-color: rgb(175, 9, 84);
+    transition: 0.2s all ease-in-out;
+}
+.button__active{
+    outline: none;
+    background-color: var(--purple);
+    color: var(--pink);
+}
+.button__active:hover{
+    color: white;
+    background-color: rgb(31, 33, 44);
+}
+
+/* CARDS */
+.poster{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.main__body{
+    height: 100vh;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: rgba(24, 31, 38);
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:  rgba(75, 85, 99);
+}
+
+.card__body{
+    bottom: 0;
+    color: gray;
+    max-width: 200px;
+    height: 280px;
+    border-radius: 8px;
+    background-color: var(--purple);
+    transition: 0.2s bottom ease-in;
+}
+
+.card__body:hover{
+    position: relative;
+    bottom: 8px;
+}
+
+.card__title{
+    height: 40px;
+}
+
+.card__number{
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--pink);
+}
+
+.card__text{
+    font-size: 14px;
+}
+
+.card__text>a{
+    color: gray;
+}
+
+.card__image>img{
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.image__text{
+    opacity: 0.5;
+    text-align: center;
+    left: 20px;
+    top: 100px;
+    position: absolute;
+    width: 80%;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 700;
+    background-color: rgb(0, 0, 0);
+}
+.card__name{
+    height: 25px;
+    font-weight: 600;
+}
+.card__name>a{
+    color: rgb(228, 228, 228);
+}
+.card__price{
+    color: rgb(168, 168, 168);
+    font-size: 12px;
+    font-weight: 700;
+}
+.price{
+    padding-top: 3px;
+}
+.sort__body>select{
+    height: 25px;
+    border: 1px solid var(--pink);
+    border-radius: 3px;
+    outline: none;
+    width: 150px;
+    color: var(--pink);
+    background-color: var(--gray);
+}
+
+@media only screen and (max-width: 576px) {
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    .sidebar__show__button{
+        display: block;
+    }
+    .sidebar__show__button>button{
+        max-width: 150px;
+    }
+    .sidebar{
+        display: none;
+    }
+    .card__body{
+        max-width: 150px;
+    }
+  }
+
+.sidebar__display{
+    display: block;
+}
+   </style>
+ 
+
+    <title>RARITY</title>
+</head>
+
+<body>
+  
+    <div class="container-fluid">
+        <!-- BODY -->
+
+        <!-- HEADER -->
+        <div class="row align-items-center header justify-content-center mb-2">
+            <div class="col-auto p-0">
+                <ul class="m-0 p-0">
+                    <li><a href="{% url 'index' %}">HOME</a>&nbsp;&nbsp;
+                    <a href="{% url 'rarity_tool' %}">Rarity Tool</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="row flex-sm-row flex-column">
+            <!-- SIDEBAR SHOW BUTTON -->
+            <div class="col-auto my-3 sidebar__show__button">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <button onclick="myFunction()">
+                            Show Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="col-sm-3 mb-5 sidebar">
+
+                <!-- FILTER BY -->
+                <div class="row align-items-center sidebar__title justify-content-center">
+                    <div class="col-auto sidebar__text">Filter by</div>
+                </div>
+                <!-- BUTTONS -->
+                <div class="row">
+                    <div class="col-12">
+                       <a href="{% url 'all_rarity_tool' %}"> <button class="px-2 py-2" id="all" onclick="button_all()">All</button></a>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <a href="{% url 'rarity_tool' %}"><button class="px-2 py-2"  onclick="button_fso()">First Sale Only</button></a>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <a href="{% url 'secondary_rarity_tool' %}"><button class="px-2 py-2" id="default" id="sm"  onclick="button_sm()">Secondary Market</button></a>
+                    </div>
+                </div>
+
+                <br>
+                <form method="post" action="secondary_filter">
+                <!-- PRICE -->
+                <div class="row align-items-center sidebar__title justify-content-center">
+                    <div class="col-auto sidebar__text">Price</div>
+                </div>
+                <!-- INPUT FIELDS -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" placeholder="MIN ETH" name="p_min" class="sidebar__input" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-2">
+                        <input type="text" placeholder="MAX ETH" name="p_max" class="sidebar__input" required>
+                    </div>
+                </div>
+
+                <!-- RARITY -->
+                <div class="row align-items-center sidebar__title justify-content-center">
+                    <div class="col-auto sidebar__text">Rarity</div>
+                </div>
+                <!-- INPUT FIELDS -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" placeholder="MIN RANK" name="r_min" class="sidebar__input" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-2">
+                        <input type="text" placeholder="MAX RANK" name="r_max" class="sidebar__input" required>
+                    </div>
+                </div>
+                <!-- BUTTON -->
+                <div class="row">
+                    <div class="col">
+                        <button class="px-2 py-2 mt-4" type="submit">Apply All</button>
+                    </div>
+                </div>
+                </form>
+                <br>
+            </div>
+
+            <!-- MAIN BODY -->
+            <div class="col-sm-9 main__body ">
+                <!-- POSTER -->
+                <div class="row">
+                    <div class="col-12">
+                        <img class="poster" src="{% static 'images/panda.png' %}" alt="image">
+                    </div>
+                </div>
+
+                <!-- SORT -->
+                <div class="row mt-4 justify-content-end">
+                    <div class="col-auto sort__body">
+                        <select name="rarity" id="rarity" onchange="javascript:handleSelect(this)">
+                            <option selected disabled>Rarity</option>
+                            <!-- Add the name of the page you want to go to in value="" -->
+                            <!-- This will route to a php page here in this case "ascending.php" -->
+                            <!-- If you want to cahnge the extension ".php" change it in the index.js file -->
+                            <option value="{% url 'secondary_rarity_tool' %}">Ascending</option>
+                            <option value="{% url 'des_secondary_rarity_tool' %}">Descending</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- CARDS CONTAINER -->
+                <div class="row justify-content-center" id="card">
+                    {% for d in data %}
+                    <!-- CARD BODY -->
+                    <div class="col-auto card__body mt-4 mx-1">
+                        <!-- CARD NUMBER & TEXT -->
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-auto card__number">#{{ d.counter }}</div>
+                        </div>
+                        <!-- CARD IMAGE -->
+                        <div class="row">
+                            <a href="{{ d.url }}">
+                            <div class="col card__image px-2 py-1">
+                                <img src="{{ d.image_url }}" alt="image">
+                            </div></a>
+                        </div>
+                        <!-- CARD CHARACTER NAME & NUMBER -->
+                        <div class="mb-4 mb-sm-0 row justify-content-start align-items-end">
+                            <div class="col-auto card__name">
+                                 {{ d.name }}
+                            </div>
+                        </div>
+                        <!-- CARD CHARACTER PRICE -->
+                        <div class=" mt-3 mt-sm-0 row justify-content-start align-items-center card__price">
+                            <div class="col-auto pr-0 price">
+                                {{ d.price }}
+                            </div>
+                            <div class="col-auto pl-1">
+                                <img src="{% static 'images/NicePng_ethereum-logo-png_1525867.png' %}" alt="" width="100%"
+                                    height="16px">
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- JS LINK -->
+    <script>
+   document.addEventListener("DOMContentLoaded", function (event) {
+    document.getElementById("default").classList.add('button__active');
+});
+
+function button_all() {
+    document.getElementById("all").classList.toggle('button__active');
+    document.getElementById("default").classList.remove('button__active');
+    document.getElementById("sm").classList.remove('button__active');
+}
+
+function button_fso() {
+    document.getElementById("all").classList.remove('button__active');
+    document.getElementById("default").classList.toggle('button__active');
+    document.getElementById("sm").classList.remove('button__active');
+}
+
+function button_sm() {
+    document.getElementById("all").classList.remove('button__active');
+    document.getElementById("default").classList.remove('button__active');
+    document.getElementById("sm").classList.toggle('button__active');
+}
+
+function myFunction() {
+    let temp = document.getElementsByClassName('sidebar');
+    console.log(temp);
+    temp[0].classList.toggle("sidebar__display");
+}
+
+function handleSelect(elm) {
+    window.location = elm.value;
+}
+
+function getFocus() {
+    document.getElementById("default").focus();
+}
+    </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+     <script>
+       var counter = 40
+       $(window).scroll(function () {
+         if ($(window).scrollTop() + $(this).height() == $(document).height()) {
+         $.post('{% url "des_secondary_url" %}', {'counter': counter}).then((result)=> {
+           counter += result.data.length
+           if(result.data.length > 0){
+               result.data.forEach((item, index)=> {
+                $("#card").append(`<div class="col-auto card__body mt-4 mx-1">
+                    <div class="row align-items-center justify-content-lg-between">
+                        <div class="col-auto card__number">#${ item.fields.counter }</div>
+                    </div>
+                    <div class="row">
+                        <a href="${ item.fields.url }">
+                        <div class="col card__image px-2 py-1">
+                            <img src="${ item.fields.image_url }" alt="image">
+                        </div></a>
+                    </div>
+                    <div class="mb-4 mb-sm-0 row justify-content-start align-items-end">
+                        <div class="col-auto card__name">
+                            ${ item.fields.name }
+                        </div>
+                    </div>
+                    <div class=" mt-3 mt-sm-0 row justify-content-start align-items-center card__price">
+                        <div class="col-auto pr-0 price">
+                            ${ item.fields.price }
+                        </div>
+                        <div class="col-auto pl-1">
+                            <img src="{% static 'images/NicePng_ethereum-logo-png_1525867.png' %}" alt="" width="100%"
+                                height="16px">
+                        </div>
+                    </div>
+                </div>`)
+             })
+           }
+         })
+           }
+       }); 
+ 
+   </script>
+</body>
+
+</html>

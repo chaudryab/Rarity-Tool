@@ -1,226 +1,327 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap Link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <!-- BODY -->
-        <div class="row flex-sm-row flex-column">
-            <!-- SIDEBAR SHOW BUTTON -->
-            <div class="col-auto my-3 sidebar__show__button">
-                <div class="row justify-content-center">
-                    <div class="col-auto">
-                        <button onclick="myFunction()">
-                            Show Filters
-                        </button>
-                    </div>
-                </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Dead Army Club</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <style>
+            html body {
+        background-color: rgba(0,0,0,1.00); 
+        }
+        #txt{
+            margin-top: 200px;
+        }
+        p {
+            font-size: 22px;
+        }
+        #line:after{
+            background: white;
+            content: '';
+            display: block;
+            width: 150px;
+            height: 1px;
+            margin: 40px auto;
+        }
+        #big-line:after{
+            background: white;
+            content: '';
+            display: block;
+            width: 1500px;
+            height: 3px;
+            /* margin: 40px auto; */
+            margin-top: 100px;
+            margin-bottom: 100px;
+            align-content: center;
+        }
+        a{
+            color: white;
+        }
+        .btn {
+            border: none;
+            width: 300px;
+            color: white;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            /* margin: 4px 2px; */
+            cursor: pointer;
+            color: black;
+            background-color: white;
+        }
+        .btn:hover {
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+        .header{
+            background-color: black;
+            height: 30px;
+        }
+        ul > li {
+            list-style-type: none;
+        }
+        li > a{
+            text-decoration: none;
+            color: var(--pink);
+        }
+        li > a:hover{
+            text-decoration: none;
+            color: rgb(168, 25, 90);
+        }
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <!-- HEADER -->
+        <div class="row align-items-center header justify-content-center mb-2">
+            <div class="col-auto p-0">
+                <ul class="m-0 p-0">
+                    <li><a href="{% url 'index' %}" style="color: rgba(219, 39, 119)">HOME</a>&nbsp;&nbsp;
+                    <a href="{% url 'rarity_tool' %}" style="color: rgba(219, 39, 119)">Rarity Tool</a></li>
+                </ul>
             </div>
-
-            <!-- SIDEBAR -->
-            <div class="col-sm-3 mb-5 sidebar">
-
-                <!-- FILTER BY -->
-                <div class="row align-items-center sidebar__title justify-content-center">
-                    <div class="col-auto sidebar__text">Filter by</div>
+        </div>
+            <div class="row">
+                <div class='col-8 offset-2'>
+                    <p class="text-white" id="txt"> <strong>King Vultman
+                        </strong> has resurrected himself after being dead
+                        for
+                        3200 years. He fully resurrected himself and his
+                        deceased
+                        wife Queen Victoria. He also resurrected his army of
+                        <strong> 10,000
+                            Dead Warriors </strong> in a mission to end the
+                        world!
+                    </p>
                 </div>
-                <!-- BUTTONS -->
+                <div class='col-8 mt-4 offset-2'>
+                    <img src="{% static 'images/img1.png' %}"
+                        class="img-fluid" alt="image">
+                </div>
+                <div class='col-8 offset-2'>
+                    <p class="text-white mt-5"> The Dead Army Club (DAC)
+                        is a collection of <span style="color: yellow;">1
+                            King</span>, <span style="color: yellow;">1
+                            Queen</span>, and <span style="color: yellow;">10,000</span>
+                        unique <span style="color: yellow;">Dead Army
+                            Warriors (DAWs)</span>.
+                    </p>
+                </div>
+                <div class='col-8 offset-2 mt-4'id='line'>
+                    <img src="{% static 'images/img2.png' %}"
+                        class="img-fluid" alt="image" width="1000px">
+                </div>
+                <div class='col-8 offset-2' id="line">
+                    <p class="text-white"> The <strong>10,000 DAWs</strong>
+                        are
+                        programmatically generated. Each <strong>DAW</strong>
+                        has a <strong>RANK</strong> and
+                        a <strong>NAME</strong>. They are unique in their
+                        names and their
+                        looks. Over than 200 traits were used together to
+                        generate the Dead Army of 10,002 unique digital
+                        collectibles. The Dead Army is stored as an ERC-721
+                        token on the Ethereum blockchain.
+                    </p>
+                </div>
+                <div class="row" id='line'>
+                    <div class='col-6 mt-4 mb-4'>
+                        <a href="{% url 'kings_tom' %}">
+                            <img class="img-fluid" src="{% static 'images/img3.jpg' %}" alt="image">
+                        </a>
+                    </div>
+                    <div class='col-6 mt-4 mb-4 align-self-center'>
+                        <a href="{% url 'kings_tom' %}"><p
+                                class="text-white">The One Million
+                                Pixel Private Club: King’s Tomb </p></a>
+                    </div>
+                </div>
+                <div class='col-10'>
+                    <h4 class="text-white">The Dead Army is led by a King
+                        and a Queen + 10,000 Dead Army Warriors (DAWs)</h4>
+                    <p class="text-white mt-4"> The DAWs are a collection of
+                        males and females with a variety of skin tones and
+                        hairstyles. They are classified into the following
+                        ranks: General, Colonel, Captain, Lieutenant, and
+                        Sergeant. Each one has a distinct rank and name.
+                    </p>
+                </div>
+                <div class="row"></div>
+                <div class="col" id="line"></div>
+                <div class="row"></div>
+                <div class="col text-white text-center">
+                    <p style="font-size: 50px;">ROADMAP</p>
+                </div>
+                <div class='col-8 offset-2' id="line">
+                    <p class="text-white mt-4">ROADMAP 1.0<br>
+                        8/01 Art Completion (done)<br>
+                        8/02 Upload to OpenSea (done)<br>
+                        8/03 Initial marketing and giveaways (done)<br>
+                        8/25 Game#1 (in progress)<br>
+                        9/10 Game#2<br>
+                        9/25 Game#3<br>
+                        10/10 Game#4<br>
+                        10/20 Game#5<br>
+                        10/31 Halloween Day: DAC Project Launch Date<br>
+                    </p>
+                </div>
+                <div class='col-8 offset-2' id="line">
+                    <p class="text-white mt-4"><strong>What to expect on the
+                            launch date (Halloween Day) 10/31?<br>
+                            1- The Dead Army Private Club Opens: </strong>The
+                        private club will be<br><strong>King Vultman’s tomb!</strong><br>
+                        All DAWs’ holders will be allowed to participate to
+                        draw in King Vultman’s tomb. The area each holder
+                        will have will be determined based on the number and
+                        the ranks of the DAWs he/she have! The more DAWs and
+                        the higher ranks the holder have, the bigger the
+                        space in the king’s tomb will be given!
+                    </p>
+                    <p class="text-white mt-4"><strong>On November 2nd,</strong>
+                        We will offer the DAW holders’ art for an auction.
+                        All the proceeding from the auction will be
+                        distributed on the holders based on the number and
+                        ranks of their DAWs. The more DAWs and the higher
+                        ranks the holder have, the bigger the proceeding
+                        will be given!
+                    </p>
+                    <p class="text-white mt-4"><strong>2- Decentraland</strong>
+                        We will declare the Decentraland block for the Dead
+                        Army Club and how can holders utilize their DAW(s).
+                        The ideas are endless! We can build a cemetery and
+                        promote ads, sell derivatives, be the go-to-place
+                        for all Halloween parties in the Metaverse in the
+                        years to come. This will be bigger than your
+                        imagination!
+                    </p>
+                    <p class="text-white mt-4"><strong>3- Youtube Channel
+                            and Back Stories</strong> We will start
+                        featuring some DAWs and create their backstories.
+                        How did they live? How did they join King Vultman’s
+                        Army? and How did they die? It will be a series of
+                        endless videos for 10,000 stories. We have hired
+                        more than a ghost writer to help us writing these
+                        stories and also we have graphic artists to
+                        implement those stories! Also, the DAW holder could
+                        do this independently and contact us to promote
+                        his/her DAW’s backstory/video.
+                    </p>
+                </div>
+                <div class='col-8 offset-2' id="line">
+                    <p class="mt-4 fw-bold" style="color: red;">HOW MUCH?</p>
+                    <p class="text-white mt-4">King (highest bid – Bidding
+                        Starts on Halloween)<br>
+                        Queen (highest bid – Bidding Starts on Halloween)<br>
+                        Sergeant (sgt.) 0 ETH <span style="color: yellow;">***FREE***</span><br>
+                        Lieutenant(Lieut.) 0.01 ETH<br>
+                        Captain(Capt.) 0.02 ETH<br>
+                        Colonel(Col.) 0.03 ETH<br>
+                        General(Gen.) 0.04 ETH<br>
+                    </p>
+                    <p class="mt-4" style="color: red;">HOW CAN I GET IT?</p>
+                    <p class="text-white mt-4">The 10,000 DAWs and the King
+                        and the Queen are available to be purchased now on
+                        <a
+                            href="https://opensea.io/collection/deadarmyclub">opensea</a>.
+                    </p>
+                    <p class="mt-4" style="color: red;">WHAT MAKES THIS
+                        PROJECT SPECIAL?</p>
+                    <p class="text-white mt-4"><span style="color: yellow;">1-</span>
+                        No blind assignment on
+                        blank art or minting before seeing! We believe in
+                        transparency between art developers and art
+                        investors! That’s why we created the art FIRST then
+                        we offered it for sale. We believe blind/random
+                        assignment after buying a blank NFT is misleading
+                        and hurt art investors!
+                    </p>
+                    <p class="text-white mt-4">You only invest in what you
+                        see and like! All 10,000 DAWs are currently
+                        available on
+                        <a
+                            href="https://opensea.io/collection/deadarmyclub">opensea</a>.
+                    </p>
+                    <p class="text-white mt-4"><span style="color: yellow;">2-</span>We
+                        invested some time to name every DAW with a unique
+                        name. We searched the whole internet for databases
+                        for the most famous names for males and females and
+                        combined them with army ranks to generate 10,000
+                        unique name attached to 10,000 unique NFTs.
+                    </p>
+                    <p class="text-white mt-4"><span style="color: yellow;">3-</span>Our
+                        project resonates with a lot of popular movies and
+                        shows! We tried to make it as relatable as possible.
+                    </p>
+                    <p class="text-white mt-4"><span style="color: yellow;">3-</span>We
+                        are here to stay. We will organize Dead Army street
+                        march events in the Northern America and big cities
+                        all over the world. We will sponsor events
+                        exclusively for DAW holders, one of which will be
+                        the <span style="color: yellow;">Dead Army Halloween
+                            Street March</span> held each
+                        October. We will continue to do so every year. By
+                        doing that, we will make sure our project has a
+                        <span style="color: yellow;">recurrent trend</span>.
+                        Not like every other project that
+                        will fade away and tank overtime.
+                    </p>
+                </div>
+                <div class="row"></div>
+                <div class="col text-white text-center">
+                    <p style="font-size: 50px;">Meet the Team
+                    </p>
+                </div>
                 <div class="row">
-                    <div class="col-12">
-                      <a href="{% url 'index' %}"> <button class="px-2 py-2">All</button></a>
+                    <div class="col-6 mt-3">
+                        <figure class="figure float-end">
+                            <img src="{% static 'images/king.png' %}"
+                                class="img-fluid" alt="image" width="300px"><br>
+                            <figcaption class="text-center mt-4 text-white
+                                fs-5">King Vultman<br> Dev.</figcaption></figure>
                     </div>
-                    <div class="col-12 mt-2">
-                        <a href="{% url 'first_rarity_tools' %}"><button class="px-2 py-2">First Sale Only</button></a>
+                    <div class="col-6 mt-3">
+                        <figure class="figure float-start">
+                            <img src="{% static 'images/queen.png' %}"
+                                class="img-fluid" alt="image" width="300px"><br>
+                            <figcaption class="text-center mt-4 text-white
+                                fs-5">Queen Victoria
+                                <br> Artist</figcaption>
+                        </figure>
                     </div>
-                </div>
-
-                <br>
-
-                <!-- PRICE -->
-                <div class="row align-items-center sidebar__title justify-content-center">
-                    <div class="col-auto sidebar__text">Price</div>
-                </div>
-                <!-- INPUT FIELDS -->
-                <form method="post" action="price">
-                    <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" placeholder="MIN ETH" name="min" class="sidebar__input"required>
+                    <div class="col-lg-6 mt-5">
+                       <a href="https://opensea.io/collection/deadarmyclub"><button class="btn fw-bold float-end">Buy Now on
+                            Opensea!</button></a>
                     </div>
-                    <div class="col-md-6 mt-md-0 mt-2">
-                        <input type="text" placeholder="MAX ETH" name="max" class="sidebar__input"required>
-                    </div>
-                </div>
-                <!-- BUTTON -->
-                <div class="row">
-                    <div class="col">
-                        <button class="px-2 py-2 mt-4" type="submit">Apply</button>
-                    </div>
-                </div>
-                </form>
-                <br>
-
-                <!-- RARITY -->
-                <div class="row align-items-center sidebar__title justify-content-center">
-                    <div class="col-auto sidebar__text">Rarity</div>
-                </div>
-                <!-- INPUT FIELDS -->
-                <form method="post" action="rank">
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" placeholder="MIN RANK" name="min" class="sidebar__input" required>
-                    </div>
-                    <div class="col-md-6 mt-md-0 mt-2">
-                        <input type="text" placeholder="MAX RANK" name="max"  class="sidebar__input" required>
-                    </div>
-                </div>
-                <!-- BUTTON -->
-                <div class="row">
-                    <div class="col">
-                        <button class="px-2 py-2 mt-4" type="submit">Apply</button>
-                    </div>
-                </div>
-            </form>
-                <br>
-            </div>
-
-            <!-- MAIN BODY -->
-            <div class="col-sm-9 main__body mt-4 ">
-                <!-- POSTER -->
-                <div class="row">
-                    <div class="col-12">
-                        <img class="poster" src="{% static 'images/panda.png' %}" alt="image">
-                    </div>
-                </div>
-
-                <!-- SORT -->
-                <!-- <div class="row mt-4 justify-content-end">
-                    <div class="col-auto sort__body">
-                        <select name="rarity" id="rarity">
-                            <option selected disabled>Rarity</option>
-                            <a href="{% url 'index' %}"><button value="ascending">Ascending</option></a>
-                            <option value="descending">Descending</option>
-                        </select>
-                    </div>
-                </div> -->
-
-                <!-- CARDS CONTAINER -->
-                <div class="row justify-content-center" id="card">
-                    {% for d in data %}
-                    <!-- CARD BODY -->
-                    <div class="col-auto card__body mt-4 mx-1">
-                        <!-- CARD NUMBER & TEXT -->
-                        <div class="row align-items-center justify-content-lg-between">
-                            <div class="col-auto card__number">#{{ d.counter }}</div>
+                    <div class="row" id='big-line' style="margin-top:
+                        300px;">
+                        <div class='col-12 mt-5'>
+                            <a href="https://discord.com/invite/ZDMmnMbScE">
+                                <img class="img-fluid" src="{% static 'images/discord-logo.png' %}"
+                                    alt="image" width="50px"></a>
+                            <a href="https://twitter.com/deadarmyclub"> <img
+                                    class="img-fluid" src="{% static 'images/twitter-logo.png' %}"
+                                    alt="image" width="50px"></a>
+                            <a
+                                href="https://www.instagram.com/deadarmyclub/">
+                                <img class="img-fluid" src="{% static 'images/insta-logo.png' %}"
+                                    alt="image" width="50px"></a>
+                            <a
+                                href="https://opensea.io/collection/deadarmyclub">
+                                <img class="img-fluid" src="{% static 'images/opensea-logo.png' %}"
+                                    alt="image" width="40px"></a>
                         </div>
-                        <!-- CARD IMAGE -->
-                        <div class="row">
-                            <a href="{{ d.url }}">
-                            <div class="col card__image px-2 py-1">
-                                <img src="{{ d.image_url }}" alt="">
-                                <!-- IMAGE TEXT -->
-                                {% if d.first_sale == 'N' %}
-                                <p class="image__text">Secondary Market</p>
-                                {% endif %}
-                            </div></a>
-                        </div>
-                        <!-- CARD CHARACTER NAME & NUMBER -->
-                        <div class="row justify-content-start align-items-end">
-                            <div class="col-auto card__name">
-                                {{ d.name }}
-                            </div>
-                        </div>
-                        <!-- CARD CHARACTER PRICE -->
-                        <div class="row justify-content-start align-items-start card__price">
-                            <div class="col-auto">
-                                {{ d.price }}
-                            </div>
-                        </div>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
-    </div>
-    <!-- JS LINK -->
-    <script src="{% static 'jss/index.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script>
-      var counter = 40
-      $(window).scroll(function () {
-        if ($(window).scrollTop() + $(this).height() == $(document).height()) {
-        $.post('{% url "index_url" %}', {'counter': counter}).then((result)=> {
-          counter += result.data.length
-          if(result.data.length > 0){
-              result.data.forEach((item, index)=> {
-                  if(item.fields.first_sale == 'Y'){
-                $("#card").append(`<div class="col-auto card__body mt-4 mx-1">
-                        <div class="row align-items-center justify-content-lg-between">
-                            <div class="col-auto card__number">#${ item.fields.counter }</div>
-                        </div>
-                        <div class="row">
-                            <a href="${ item.fields.url }">
-                            <div class="col card__image px-2 py-1">
-                                <img src="${ item.fields.image_url }" alt="">
-                            </div></a>
-                        </div>
-                        <div class="row justify-content-start align-items-end">
-                            <div class="col-auto card__name">
-                                ${ item.fields.name }
-                            </div>
-                        </div>
-                        <div class="row justify-content-start align-items-start card__price">
-                            <div class="col-auto">
-                                ${ item.fields.price }
-                            </div>
-                        </div>
-                    </div>`)}
-                    else{
-                        $("#card").append(`<div class="col-auto card__body mt-4 mx-1">
-                        <div class="row align-items-center justify-content-lg-between">
-                            <div class="col-auto card__number">#${ item.fields.counter }</div>
-                        </div>
-                        <div class="row">
-                            <a href="${ item.fields.url }">
-                            <div class="col card__image px-2 py-1">
-                                <img src="${ item.fields.image_url }" alt="">
-                                <p class="image__text">Secondary Market</p>
-                            </div></a>
-                        </div>
-                        <div class="row justify-content-start align-items-end">
-                            <div class="col-auto card__name">
-                                ${ item.fields.name }
-                            </div>
-                        </div>
-                        <div class="row justify-content-start align-items-start card__price">
-                            <div class="col-auto">
-                                ${ item.fields.price }
-                            </div>
-                        </div>
-                    </div>`)
-                    }
-            })
-          }
-        })
-          }
-      }); 
-
-  </script>
-</body>
+    </body>
 </html>

@@ -9,8 +9,23 @@ body{
   background-color: rgba(31, 41, 55);
 }
 
+/* HEADER */
+.header{
+  background-color: black;
+  height: 30px;
+}
+ul > li {
+  list-style-type: none;
+}
+li > a{
+  text-decoration: none;
+  color: var(--pink);
+}
+li > a:hover{
+  text-decoration: none;
+  color: rgb(168, 25, 90);
+}
 /* SIDEBAR */
-
 .sidebar{
   
 }
@@ -50,7 +65,7 @@ button{
   font-size: 12px;
   background-color: rgba(219, 39, 119);
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid var(--pink);
   border-radius: 12px;
   font-weight: 600;
 }
@@ -58,6 +73,11 @@ button:hover{
   color: white;
   background-color: rgb(175, 9, 84);
   transition: 0.2s all ease-in-out;
+}
+button:focus{
+  outline: none;
+  background-color: var(--purple);
+  color: var(--pink);
 }
 
 /* CARDS */
@@ -143,7 +163,9 @@ button:hover{
   color: rgb(168, 168, 168);
   font-size: 12px;
   font-weight: 700;
-  height: 0px;
+}
+.price{
+  padding-top: 3px;
 }
 .sort__body>select{
   height: 25px;
@@ -167,6 +189,9 @@ button:hover{
   }
   .sidebar{
       display: none;
+  }
+  .card__body{
+      max-width: 150px;
   }
 }
 
