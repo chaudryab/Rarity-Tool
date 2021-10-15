@@ -13,6 +13,11 @@ urlpatterns = [
     path('high_first_url', views.high_first_url, name='high_first_url'),
     path('filter', views.filter, name='filter'),
     path('filter_url', views.filter_url, name='filter_url'),
+    path('rarity_filter', views.rarity_filter, name='rarity_filter'),
+    path('low_filter', views.low_filter, name='low_filter'),
+    path('low_filter_url', views.low_filter_url, name='low_filter_url'),
+    path('high_filter', views.high_filter, name='high_filter'),
+    path('high_filter_url', views.high_filter_url, name='high_filter_url'),
     #------------ All ----------------------
     path('all_rarity_tool', views.all_rarity_tool, name='all_rarity_tool'),
     path('all_url', views.all_url, name='all_url'),
@@ -22,6 +27,11 @@ urlpatterns = [
     path('high_all_url', views.high_all_url, name='high_all_url'),
     path('filter_all', views.filter_all, name='filter_all'),
     path('filter_url_all', views.filter_url_all, name='filter_url_all'),
+    path('rarity_filter_all', views.rarity_filter_all, name='rarity_filter_all'),
+    path('low_filter_all', views.low_filter_all, name='low_filter_all'),
+    path('low_filter_url_all', views.low_filter_url_all, name='low_filter_url_all'),
+    path('high_filter_all', views.high_filter_all, name='high_filter_all'),
+    path('high_filter_url_all', views.high_filter_url_all, name='high_filter_url_all'),
     #------------ Secondary ----------------------
     path('secondary_rarity_tool', views.secondary_rarity_tool, name='secondary_rarity_tool'),
     path('second_url', views.second_url, name='second_url'),
@@ -31,5 +41,10 @@ urlpatterns = [
     path('high_secondary_url', views.high_secondary_url, name='high_secondary_url'),
     path('secondary_filter', views.secondary_filter, name='secondary_filter'),
     path('secondary_filter_url', views.secondary_filter_url, name='secondary_filter_url'),
+    path('secondary_filter_all', views.secondary_filter_all, name='secondary_filter_all'),
+    path('low_secondary_filter', views.low_secondary_filter, name='low_secondary_filter'),
+    path('low_secondary_filter_url', views.low_secondary_filter_url, name='low_secondary_filter_url'),
+    path('high_secondary_filter', views.high_secondary_filter, name='high_secondary_filter'),
+    path('high_secondary_filter_url', views.high_secondary_filter_url, name='high_secondary_filter_url'),
     
 ]

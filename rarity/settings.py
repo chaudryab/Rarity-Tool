@@ -79,16 +79,9 @@ WSGI_APPLICATION = 'rarity.wsgi.application'
 
 DATABASES = {
     'default': {
-        
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd9r8naafd6tu15',
-        'USER': 'uckobssjvvlcrr',
-        'PASSWORD': '87935f19490ed1aa9e3c5afa975d01c99c628bdbadfe36df6a0a0d39f1fa38b0',
-        'HOST': 'ec2-23-20-208-173.compute-1.amazonaws.com',
-        'PORT': '5432',
 
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
