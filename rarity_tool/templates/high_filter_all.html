@@ -263,10 +263,10 @@ button:hover{
                 <!-- BUTTONS -->
                 <div class="row">
                     <div class="col-12">
-                       <a href="{% url 'all_rarity_tool' %}"> <button class="px-2 py-2" id="all" onclick="button_all()">All</button></a>
+                       <a href="{% url 'all_rarity_tool' %}"> <button class="px-2 py-2" id="default" id="all" onclick="button_all()">All</button></a>
                     </div>
                     <div class="col-12 mt-2">
-                        <a href="{% url 'rarity_tool' %}"><button class="px-2 py-2" id="default" onclick="button_fso()">First Sale Only</button></a>
+                        <a href="{% url 'rarity_tool' %}"><button class="px-2 py-2" onclick="button_fso()">First Sale Only</button></a>
                     </div>
                     <div class="col-12 mt-2">
                        <a href="{% url 'secondary_rarity_tool' %}"> <button class="px-2 py-2" id="sm" onclick="button_sm()">Secondary Market</button></a>
